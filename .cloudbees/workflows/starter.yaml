@@ -14,5 +14,3 @@ jobs:
         run: go build -o workflow-test ./...
       - name: scan
         uses: cloudbees-io/sonarqube-bundled-sast-scan-code@v2
-        with:
-          language: LANGUAGE_GO
