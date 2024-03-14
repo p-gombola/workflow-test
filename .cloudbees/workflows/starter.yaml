@@ -15,5 +15,5 @@ jobs:
       - name: scan
         uses: cloudbees-io/sonarqube-bundled-sast-scan-code@v2
         with:
-          sonar-inclusion: *.go
+          sonar-inclusion: \*.go
           language: LANGUAGE_GO
