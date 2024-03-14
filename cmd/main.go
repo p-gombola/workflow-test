@@ -1,7 +1,7 @@
 package main
 
-import "github.com/calculi-corp/log"
+import "fmt"
 
 func main() {
-	log.Info("hello world!")
+	fmt.Println("hello world!")
 }
