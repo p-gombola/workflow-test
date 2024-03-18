@@ -2,17 +2,27 @@ apiVersion: automation.cloudbees.io/v1alpha1
 kind: workflow
 name: starter-workflow
 jobs:
-  go-build:
+  python-build:
     steps:
       - name: checkout
         uses: cloudbees-io/checkout@v1
-      - name: test
-        uses: docker://golang:1.22-alpine3.19
-        run: go test -cover ./...
       - name: build
-        uses: docker://golang:1.22-alpine3.19
-        run: go build ./...
+        uses: python:3.13.0a4-alpine3.19
+        run: |-
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: package
+        uses: python:3.13.0a4-alpine3.19
+        run: |-
+          python -m pip install build
+          python -m build --sdist
+          python -m build --wheel
+      - name: test
+        uses: python:3.13.0a4-alpine3.19
+        run: |-
+          python -m pip install pytest
+          python -m unittest
       - name: scan
         uses: cloudbees-io/sonarqube-bundled-sast-scan-code@v2
         with:
-          language: LANGUAGE_GO
+          language: LANGUAGE_PYTHON
