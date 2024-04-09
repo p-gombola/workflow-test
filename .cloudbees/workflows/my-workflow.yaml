@@ -15,7 +15,7 @@ jobs:
         shell: sh
         run: |
           echo "hello world"
-      - name: Say goodbye
+      - name: Get commiter
         uses: docker://alpine
-        runs: |
-          echo "goodbye"
+        run: |
+          echo "${{ cloudbees.event.commits[0].author }}""
