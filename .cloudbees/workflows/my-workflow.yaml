@@ -18,4 +18,4 @@ jobs:
       - name: Get commiter
         uses: docker://alpine
         run: |
-          echo "${{ cloudbees.event.commits[0].author }}""
+          echo "${{ cloudbees.event.commits[0].author[0] }}""
