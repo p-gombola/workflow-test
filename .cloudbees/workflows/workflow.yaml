@@ -18,6 +18,7 @@ jobs:
       uses: cloudbees-io/kaniko@v1.1.5
       with:
         context: ./.cloudbees/testing
+        dockerfile: Dockerfile
         destination: ttl.sh/kaniko-test:5m
     
     - name: check
