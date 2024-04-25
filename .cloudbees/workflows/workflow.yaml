@@ -14,6 +14,7 @@ jobs:
       uses: cloudbees-io/checkout@v1
 
     - name: build
+      id: build
       uses: cloudbees-io/kaniko@v1.1.5
       with:
         context: ./.cloudbees/testing
