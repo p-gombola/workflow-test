@@ -8,15 +8,19 @@ on:
       - '**'
 
 jobs:
-  build:
-    runs-on: x-large
+    exceed-memory-limit:
     steps:
-      - name: Say hello
-        uses: docker://golang:1.20.3-alpine3.17
-        shell: sh
+      - name: Exceed memory limit
+        uses: docker://alpine:3.18
         run: |
-          echo "hello world"
-      - name: Get commiter
-        uses: docker://alpine
-        run: |
-          echo "${{ cloudbees.event.head_commit.author.name }}"
+          echo "Free memory: $(expr $(cat /proc/meminfo | awk '/MemFree/{printf "%d\n", $2 * 0.9;}') / 1024 / 1024)GiB"
+          echo
+          echo Generating 1GiB file ...
+          cat /dev/urandom | tr -dc _A-Z-a-z-0-9 | head -c $(expr 1024 \* 1024 \* 1024) > file
+          VAR=
+          SIZE=0
+          for IDX in $(seq 1 15); do
+            SIZE=$(expr $SIZE + 1)
+            echo Loading generated file into memory ${SIZE}x ...
+            VAR="$VAR$(cat file))"
+          done
