@@ -8,7 +8,7 @@ on:
       - '**'
 
 jobs:
-    exceed-memory-limit:
+  exceed-memory-limit:
     steps:
       - name: Exceed memory limit
         uses: docker://alpine:3.18
