@@ -9,7 +9,7 @@ on:
 
 jobs:
   build:
-    runs-on: large
+    runs-on: x-large
     steps:
       - name: Say hello
         uses: docker://golang:1.20.3-alpine3.17
