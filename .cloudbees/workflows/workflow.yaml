@@ -13,7 +13,7 @@ jobs:
       - name: Get source code
         uses: cloudbees-io/checkout@v1
       - name: action-with-always
-        uses: .
+        uses: p-gombola/actions@always-cond
       - name: workflow-after-action
         uses: docker://alpine:3.20
         run: |
