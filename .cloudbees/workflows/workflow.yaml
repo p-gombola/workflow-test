@@ -14,7 +14,7 @@ jobs:
         uses: cloudbees-io/checkout@v1
       - name: action-with-always
         uses: .
-      - name: after
+      - name: workflow-after-action
         uses: docker://alpine:3.20
         run: |
           echo "After the action step"
