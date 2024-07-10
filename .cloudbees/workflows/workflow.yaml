@@ -1,6 +1,12 @@
 apiVersion: automation.cloudbees.io/v1alpha1
 kind: workflow
 name: check-always
+
+on:
+  push:
+    branches:
+    - '**'
+
 jobs:
   build:
     steps:
