@@ -5,7 +5,7 @@ name: action-with-always
 runs:
   using: composite
   steps:
-    - name: action-fail
+    - name: action-should-run
       uses: docker://alpine:3.20
       run: |
         echo "Running action"
