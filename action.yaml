@@ -1,0 +1,20 @@
+apiVersion: automation.cloudbees.io/v1alpha1
+kind: action
+name: action-with-always
+
+runs:
+  using: composite
+  steps:
+    - name: fail
+      uses: docker://alpine:3.20
+      run: |
+        exit 1
+    - name: should-run
+      uses: docker://alpine:3.20
+      if: ${{ always() }}
+      run: |
+        echo "Running the always step"
+    - name: should-not-run
+      uses: docker://alpine:3.20
+      run: |
+        echo "I shouldn't be running"
