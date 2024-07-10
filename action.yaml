@@ -8,13 +8,4 @@ runs:
     - name: action-fail
       uses: docker://alpine:3.20
       run: |
-        exit 1
-    - name: action-always-run
-      uses: docker://alpine:3.20
-      if: ${{always()}}
-      run: |
-        echo "Running the always step"
-    - name: action-should-not-run
-      uses: docker://alpine:3.20
-      run: |
-        echo "I shouldn't be running"
+        echo "Running action"

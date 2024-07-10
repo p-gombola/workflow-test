@@ -12,9 +12,14 @@ jobs:
     steps:
       - name: Get source code
         uses: cloudbees-io/checkout@v1
-      - name: action-with-always
-        uses: p-gombola/actions@always-cond
-      - name: workflow-after-action
+      - name: fail
         uses: docker://alpine:3.20
         run: |
-          echo "After the action step"
+          exit 1
+      - name: action-with-always
+        if: ${{always()}}
+        uses: .
+      - name: workflow-should-not-run
+        uses: docker://alpine:3.20
+        run: |
+          echo "Should not be running"
