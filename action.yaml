@@ -7,5 +7,6 @@ runs:
   steps:
     - name: action-should-run
       uses: docker://alpine:3.20
+      if: ${{always()}}
       run: |
         echo "Running action"
