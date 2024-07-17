@@ -1,6 +1,12 @@
 apiVersion: automation.cloudbees.io/v1alpha1
 kind: workflow
 name: starter-workflow
+
+on:
+  push:
+    branches:
+      - "**"
+
 jobs:
   build:
     runs-on: 'large'
