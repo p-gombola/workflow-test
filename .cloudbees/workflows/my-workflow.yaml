@@ -9,7 +9,6 @@ on:
 
 jobs:
   exceed-memory-limit:
-    runs-on: large
     steps:
       - name: Exceed memory limit
         uses: docker://alpine:3.18
