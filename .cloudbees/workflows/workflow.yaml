@@ -7,6 +7,9 @@ on:
     branches: 
       - '**'
 
+permissions:
+  id-token: write
+
 jobs:
   say-hello:
     steps:
@@ -15,4 +18,4 @@ jobs:
       - name: hello
         uses: docker://alpine:3.20
         run: |
-          echo "hello, hello 3A"
+          echo "hello, hello id-token"
