@@ -3,9 +3,7 @@ kind: workflow
 name: hello-workflow
 
 on:
-  push:
-    branches: 
-      - '**'
+  workflow_dispatch:
 
 permissions:
   id-token: write
