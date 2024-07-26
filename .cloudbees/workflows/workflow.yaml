@@ -6,8 +6,6 @@ on:
   workflow_dispatch:
 
 permissions:
-  scm-token-own: write
-  scm-token-org: read
   id-token: write
 
 jobs:
