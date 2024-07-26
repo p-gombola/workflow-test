@@ -7,7 +7,7 @@ on:
 
 permissions:
   scm-token-own: write
-  scm-token-org: write
+  scm-token-org: read
   id-token: write
 
 jobs:
