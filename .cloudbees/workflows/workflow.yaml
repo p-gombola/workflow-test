@@ -7,9 +7,6 @@ on:
 
 jobs:
   my-job-1:
-    outputs:
-      output1: ${{ steps.step1.outputs.greeting }}
-      output2: ${{ steps.step2.outputs.greeting }}
     steps:
       - name: My first step
         uses: docker://alpine:3.18
