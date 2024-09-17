@@ -17,3 +17,6 @@ jobs:
         uses: docker://alpine:3.20
         run: |
           echo "hello, hello id-token"
+      - name: goodbye
+        uses: docker://alpine:3.20
+        run: echo "good bye"
