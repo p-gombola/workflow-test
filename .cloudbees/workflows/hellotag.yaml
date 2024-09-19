@@ -4,7 +4,8 @@ name: hellow
 
 on:
   push:
-    tags: 'v0.0.3'
+    tags: 
+    - 'v0.0.3'
 
 jobs:
   greet:
