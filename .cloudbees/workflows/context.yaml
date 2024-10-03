@@ -4,6 +4,9 @@ name: List Contexts
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - "**"
 
 jobs:
   contexts:
