@@ -13,7 +13,7 @@ jobs:
       run: echo "${{ cloudbees.event_name }}"
     - name: event
       uses: docker://alpine:3.20
-      run: echo ${{ cloudbees.event }}
+      run: echo ${{ fromJSON(cloudbees.event) }}
     - name: home
       uses: docker://alpine:3.20
       run: echo ${{ cloudbees.home }}
@@ -26,4 +26,3 @@ jobs:
     - name: version
       uses: docker://alpine:3.20
       run: echo ${{ cloudbees.version }}
-      
