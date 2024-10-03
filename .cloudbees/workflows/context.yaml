@@ -11,4 +11,4 @@ jobs:
     - name: event_name
       uses: docker://alpine:3.20
       run: |
-        echo "${{ context.event_name }}
+        echo "${{ cloudbees.event_name }}
