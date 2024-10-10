@@ -34,6 +34,12 @@ jobs:
       run: |
         echo "${{ cloudbees.api.token }}"
         echo "${{ cloudbees.api.url }}"
+    - name: workspace
+      uses: docker://alpine:3.20
+      run: echo "workspace: ${{ cloudbees.workspace }}"
+    - name: registries
+      uses: docker://alpine:3.20
+      run: echo "workspace: ${{ cloudbees.registeries }}"
     - name: scm
       uses: docker://alpine:3.20
       run: |
