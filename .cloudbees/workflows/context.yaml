@@ -37,7 +37,7 @@ jobs:
     - name: scm
       uses: docker://alpine:3.20
       run: |
-        echo "cloudbees.scm: ${{ toJSON(cloudbees.scm) }}
+        echo "cloudbees.scm: ${{ toJSON(cloudbees.scm) }}"
         echo "provider: ${{ cloudbees.scm.provider }}"
         echo "provider_url: ${{ cloudbees.scm.provider_url }}"
         echo "repository: ${{ cloudbees.scm.repository }}"
