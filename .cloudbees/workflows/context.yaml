@@ -49,3 +49,7 @@ jobs:
       uses: docker://alpine:3.20
       run: |
         echo "job: ${{ toJSON(job) }}"
+    - name: jobs
+      uses: docker://alpine:3.20
+      run: |
+        echo "jobs: ${{ toJSON(jobs) }}"
