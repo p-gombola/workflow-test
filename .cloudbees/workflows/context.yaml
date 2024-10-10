@@ -43,4 +43,4 @@ jobs:
         echo "sha: ${{ cloudbees.scm.sha }}"
         echo "branch: ${{ cloudbees.scm.branch }}"
         echo "ref: ${{ cloudbees.scm.ref }}"
-        echo "repository_url: ${{ cloudbees.scm.repository_url }}"
+        echo "repositoryUrl: ${{ cloudbees.scm.repositoryUrl }}"
