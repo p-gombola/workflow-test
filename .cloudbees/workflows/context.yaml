@@ -35,6 +35,7 @@ jobs:
         echo "${{ cloudbees.api.token }}"
         echo "${{ cloudbees.api.url }}"
     - name: scm
+      id: scm
       uses: docker://alpine:3.20
       run: |
         echo "cloudbees.scm: ${{ toJSON(cloudbees.scm) }}"
@@ -46,6 +47,7 @@ jobs:
         echo "ref: ${{ cloudbees.scm.ref }}"
         echo "repositoryUrl: ${{ cloudbees.scm.repositoryUrl }}"
     - name: job
+      id: job
       uses: docker://alpine:3.20
       run: |
         echo "job: ${{ toJSON(job) }}"
