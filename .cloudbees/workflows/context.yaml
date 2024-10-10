@@ -45,3 +45,6 @@ jobs:
         echo "branch: ${{ cloudbees.scm.branch }}"
         echo "ref: ${{ cloudbees.scm.ref }}"
         echo "repositoryUrl: ${{ cloudbees.scm.repositoryUrl }}"
+    - name: job
+      uses: docker://alpine:3.20
+      run: echo "job: ${{ toJSON( job ) }}"
