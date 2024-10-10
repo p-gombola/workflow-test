@@ -37,4 +37,10 @@ jobs:
     - name: scm
       uses: docker://alpine:3.20
       run: |
-        echo "${{ cloudbees.scm.provider_url }}"
+        echo "provider: ${{ cloudbees.scm.provider }}"
+        echo "provider_url: ${{ cloudbees.scm.provider_url }}"
+        echo "repository: ${{ cloudbees.scm.repository }}"
+        echo "sha: ${{ cloudbees.scm.sha }}"
+        echo "branch: ${{ cloudbees.scm.branch }}"
+        echo "ref: ${{ cloudbees.scm.ref }}"
+        echo "repository_url: ${{ cloudbees.scm.repository_url }}"
