@@ -48,12 +48,12 @@ jobs:
         echo "repositoryUrl: ${{ cloudbees.scm.repositoryUrl }}"
   generate-greeting:
     outputs:
-      greeting: ${{ steps.greet.outputs }}
+      greeting: ${{ steps.greet.outputs.greeting }}
     steps:
       - id: greet
         uses: docker://alpine:3.20
         run: |
-          echo "hello world"
+          echo "hello world" > $CLOUDBEES_OUTPUTS/greeting
   retrieve:
     needs:
       - generate-greeting
