@@ -54,7 +54,7 @@ jobs:
         uses: docker://alpine:3.20
         run: |
           echo "hello world" > $CLOUDBEES_OUTPUTS/greeting
-  retrieve:
+  print-greeting:
     needs:
       - generate-greeting
     steps:
