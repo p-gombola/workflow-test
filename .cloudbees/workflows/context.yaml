@@ -46,12 +46,19 @@ jobs:
         echo "branch: ${{ cloudbees.scm.branch }}"
         echo "ref: ${{ cloudbees.scm.ref }}"
         echo "repositoryUrl: ${{ cloudbees.scm.repositoryUrl }}"
-    - name: job
-      id: job
-      uses: docker://alpine:3.20
-      run: |
-        echo "job: ${{ toJSON(job) }}"
-    - name: steps
-      uses: docker://alpine:3.20
-      run: |
-        echo "steps: ${{ toJSON(steps) }}"
+  generate-greeting:
+    outputs:
+      greeting: ${{ steps.greet.outputs }}
+    steps:
+      - id: greet
+        uses: docker://alpine:3.20
+        run: |
+          echo "hello world"
+  retrieve:
+    needs:
+      - generate-greeting
+    steps:
+      - name: print
+        uses: docker://alpine:3.20
+        run: |
+          echo ${{ needs.generate-greeting.outputs.greeting }}
