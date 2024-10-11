@@ -8,6 +8,9 @@ on:
     branches:
       - "cb-context"
 
+env:
+  WORKFLOW_VAR: "This is a workflow environment variable"
+
 jobs:
   contexts:
     steps:
@@ -62,3 +65,15 @@ jobs:
         uses: docker://alpine:3.20
         run: |
           echo ${{ needs.generate-greeting.outputs.greeting }}
+  build:
+    env:
+      JOB_VAR: "This is a job environment variable"
+    steps:
+      - name: checkout
+        uses: docker://alpine:3.20
+        run: |
+          echo ${WORKFLOW_VAR}
+          echo ${JOB_VAR}
+          echo ${STEP_VAR}
+        env:
+          STEP_VAR: "This is a step environment variable"
